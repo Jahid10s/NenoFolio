@@ -441,3 +441,79 @@ code { background: #10200c; color: #a5ff8a; }
   width: 100%;
   height: 100%;
 }
+
+
+/* Continuous creative-services marquee */
+.ticker { overflow: hidden; }
+.ticker-track {
+  width: max-content;
+  min-width: 0;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 17px 0;
+  animation: nenofolio-marquee 26s linear infinite;
+  will-change: transform;
+}
+.ticker-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 37px;
+  padding-right: 37px;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+@keyframes nenofolio-marquee {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-50%,0,0); }
+}
+
+/* 3D solar-system orbit around the fixed N */
+.hero-art {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.art-orbit {
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  will-change: transform;
+  border-color: rgba(57,255,20,.36);
+}
+.art-orbit::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #39ff14;
+  box-shadow: 0 0 8px #39ff14, 0 0 18px rgba(57,255,20,.8);
+  transform: translateY(-50%);
+}
+.orbit-one {
+  transform: rotateX(68deg) rotateY(0deg) rotateZ(-24deg);
+  animation: nenofolio-orbit-one 14s linear infinite;
+}
+.orbit-two {
+  transform: rotateX(18deg) rotateY(62deg) rotateZ(45deg);
+  animation: nenofolio-orbit-two 19s linear infinite;
+  border-color: rgba(57,255,20,.52);
+}
+.orbit-two::before {
+  right: auto;
+  left: -4px;
+  width: 6px;
+  height: 6px;
+  background: #b5ff9e;
+  box-shadow: 0 0 8px #39ff14, 0 0 16px rgba(57,255,20,.8);
+}
+@keyframes nenofolio-orbit-one {
+  0% { transform: rotateX(68deg) rotateY(0deg) rotateZ(-24deg); }
+  50% { transform: rotateX(82deg) rotateY(180deg) rotateZ(156deg); }
+  100% { transform: rotateX(68deg) rotateY(360deg) rotateZ(336deg); }
+}
+@keyframes nenofolio-orbit-two {
+  0% { transform: rotateX(18deg) rotateY(62deg) rotateZ(45deg); }
+  50% { transform: rotateX(62deg) rotateY(18deg) rotateZ(225deg); }
+  100% { transform: rotateX(18deg) rotateY(62deg) rotateZ(405deg); }
+}
