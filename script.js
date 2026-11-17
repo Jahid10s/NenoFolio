@@ -172,7 +172,7 @@ function renderEmbeds(items) {
     if (!source) return;
 
     const card = makeElement("article", "embed-card");
-    const isInstagramReel = item.platform === "instagram" && /\\/reel\\//i.test(item.url);
+    const isInstagramReel = item.platform === "instagram" && /\/reel\//i.test(item.url);
     const media = makeElement("div", "embed-media" + (isInstagramReel ? " embed-media-reel" : ""));
     const iframe = document.createElement("iframe");
     iframe.src = source;
