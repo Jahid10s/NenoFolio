@@ -612,3 +612,89 @@ code { background: #10200c; color: #a5ff8a; }
 @media (prefers-reduced-motion: reduce) {
   .ticker-track, .art-orbit { animation-duration: 60s !important; }
 }
+
+
+/* Make all seven orbital paths visibly separate at every screen size */
+.hero-art { overflow: visible; }
+.hero-art > .art-orbit {
+  left: 50%;
+  top: 50%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0 !important;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 1;
+  display: block;
+}
+.hero-art > .orbit-one {
+  width: 96%;
+  animation: orbit-visible-one 7s linear infinite;
+  border-color: rgba(57,255,20,.68);
+}
+.hero-art > .orbit-two {
+  width: 86%;
+  animation: orbit-visible-two 8s linear infinite;
+  border-color: rgba(57,255,20,.58);
+}
+.hero-art > .orbit-three {
+  width: 76%;
+  animation: orbit-visible-three 6s linear infinite;
+  border-color: rgba(57,255,20,.52);
+}
+.hero-art > .orbit-four {
+  width: 66%;
+  animation: orbit-visible-four 9s linear infinite;
+  border-color: rgba(57,255,20,.48);
+}
+.hero-art > .orbit-five {
+  width: 56%;
+  animation: orbit-visible-five 5.5s linear infinite;
+  border-color: rgba(57,255,20,.44);
+}
+.hero-art > .orbit-six {
+  width: 46%;
+  animation: orbit-visible-six 7.5s linear infinite;
+  border-color: rgba(57,255,20,.4);
+}
+.hero-art > .orbit-seven {
+  width: 36%;
+  animation: orbit-visible-seven 6.5s linear infinite;
+  border-color: rgba(57,255,20,.56);
+}
+.hero-art > .art-orbit::before {
+  top: 50%;
+  right: -4px;
+  left: auto;
+  width: 6px;
+  height: 6px;
+  z-index: 2;
+}
+@keyframes orbit-visible-one {
+  from { transform: translate(-50%,-50%) rotateX(72deg) rotateY(0deg) rotateZ(0deg); }
+  to { transform: translate(-50%,-50%) rotateX(72deg) rotateY(360deg) rotateZ(360deg); }
+}
+@keyframes orbit-visible-two {
+  from { transform: translate(-50%,-50%) rotateX(25deg) rotateY(68deg) rotateZ(20deg); }
+  to { transform: translate(-50%,-50%) rotateX(25deg) rotateY(428deg) rotateZ(380deg); }
+}
+@keyframes orbit-visible-three {
+  from { transform: translate(-50%,-50%) rotateX(58deg) rotateY(25deg) rotateZ(0deg); }
+  to { transform: translate(-50%,-50%) rotateX(58deg) rotateY(385deg) rotateZ(360deg); }
+}
+@keyframes orbit-visible-four {
+  from { transform: translate(-50%,-50%) rotateX(12deg) rotateY(76deg) rotateZ(65deg); }
+  to { transform: translate(-50%,-50%) rotateX(12deg) rotateY(436deg) rotateZ(425deg); }
+}
+@keyframes orbit-visible-five {
+  from { transform: translate(-50%,-50%) rotateX(82deg) rotateY(15deg) rotateZ(35deg); }
+  to { transform: translate(-50%,-50%) rotateX(82deg) rotateY(375deg) rotateZ(395deg); }
+}
+@keyframes orbit-visible-six {
+  from { transform: translate(-50%,-50%) rotateX(38deg) rotateY(54deg) rotateZ(12deg); }
+  to { transform: translate(-50%,-50%) rotateX(38deg) rotateY(414deg) rotateZ(372deg); }
+}
+@keyframes orbit-visible-seven {
+  from { transform: translate(-50%,-50%) rotateX(66deg) rotateY(42deg) rotateZ(78deg); }
+  to { transform: translate(-50%,-50%) rotateX(66deg) rotateY(402deg) rotateZ(438deg); }
+}
