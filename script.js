@@ -19,13 +19,14 @@ const SITE_CONTENT = {
   ],
   embeds: [
     // YouTube: { platform: "youtube", title: "My latest video", url: "https://youtu.be/VIDEO_ID" }
-    // Instagram: { platform: "instagram", title: "My latest reel", url: "https://www.instagram.com/reel/SHORTCODE/" }
+    // Instagram Reels: add one entry per public Reel using its individual URL.
+    // Example: { platform: "instagram", title: "Featured AMV Reel", url: "https://www.instagram.com/reel/SHORTCODE/" }
   ],
   socials: {
     github: "https://github.com/Jahid10s",
     youtube: "",
-    instagram: "",
-    email: ""
+    instagram: "https://www.instagram.com/nenovex.gaming?exln=b2tvZWt3cHhwaHVw",
+    email: "jahidben83@gmail.com"
   },
   ambientAudio: "assets/audio/ambient.mp3"
 };
@@ -159,7 +160,7 @@ function renderEmbeds(items) {
     empty.append(
       makeElement("div", "embed-empty-icon", "▶"),
       makeElement("h3", "", "Connect your platforms."),
-      makeElement("p", "", "Add YouTube or Instagram links to the embeds list in script.js.")
+      makeElement("p", "", "Add YouTube video URLs or individual public Instagram Reel URLs to the embeds list in script.js.")
     );
     embedGallery.append(empty);
     return;
@@ -171,7 +172,8 @@ function renderEmbeds(items) {
     if (!source) return;
 
     const card = makeElement("article", "embed-card");
-    const media = makeElement("div", "embed-media");
+    const isInstagramReel = item.platform === "instagram" && /\\/reel\\//i.test(item.url);
+    const media = makeElement("div", "embed-media" + (isInstagramReel ? " embed-media-reel" : ""));
     const iframe = document.createElement("iframe");
     iframe.src = source;
     iframe.title = item.title || (item.platform + " embed");
