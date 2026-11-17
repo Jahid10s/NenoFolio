@@ -271,10 +271,41 @@ function setupNavigation() {
   }));
 }
 
+
+async function setupBrandLogo() {
+  const mark = document.getElementById("brandMark");
+  const image = document.getElementById("brandAvatar");
+  if (!mark || !image) return;
+
+  try {
+    const response = await fetch("assets/nenofolio-character.webp.b64");
+    if (!response.ok) throw new Error("Logo asset unavailable");
+    const encoded = (await response.text()).trim();
+    if (!encoded) throw new Error("Logo asset is empty");
+
+    image.addEventListener("load", () => {
+      mark.classList.add("is-loaded");
+    }, { once: true });
+    image.src = "data:image/webp;base64," + encoded;
+
+    let favicon = document.querySelector('link[rel="icon"]');
+    if (!favicon) {
+      favicon = document.createElement("link");
+      favicon.rel = "icon";
+      document.head.append(favicon);
+    }
+    favicon.type = "image/webp";
+    favicon.href = image.src;
+  } catch (_) {
+    image.remove();
+  }
+}
+
 renderFilters(SITE_CONTENT.videos);
 renderVideos(SITE_CONTENT.videos);
 renderEmbeds(SITE_CONTENT.embeds);
 renderSocials();
 setupAmbientAudio();
 setupNavigation();
+setupBrandLogo();
 document.getElementById("currentYear").textContent = String(new Date().getFullYear());
