@@ -763,3 +763,54 @@ code { background: #10200c; color: #a5ff8a; }
 .hero-art > .orbit-three { --orbit-w: 74%; --orbit-h: 60%; }
 .hero-art > .orbit-four  { --orbit-w: 64%; --orbit-h: 80%; }
 .hero-art > .orbit-five  { --orbit-w: 54%; --orbit-h: 70%; }
+
+
+/* Screenshot-matched orbital graphic: four calm, clean ellipses */
+.hero-art > .orbit-one,
+.hero-art > .orbit-two,
+.hero-art > .orbit-three,
+.hero-art > .orbit-four {
+  display: block !important;
+  border: 1px solid rgba(57,255,20,.24);
+  opacity: 1;
+  box-shadow: none;
+  background: transparent;
+  animation: orbit-reference-clean var(--orbit-speed) linear infinite !important;
+  animation-delay: var(--orbit-delay) !important;
+}
+.hero-art > .orbit-one {
+  --orbit-speed: 12s; --orbit-delay: -2s;
+  width: 96%; height: 96%;
+  border-color: rgba(57,255,20,.28);
+  transform: translate(-50%,-50%) rotateX(8deg) rotateY(12deg) rotateZ(-8deg);
+}
+.hero-art > .orbit-two {
+  --orbit-speed: 9s; --orbit-delay: -4s;
+  width: 76%; height: 58%;
+  border-color: rgba(57,255,20,.23);
+  transform: translate(-50%,-50%) rotateX(58deg) rotateY(12deg) rotateZ(28deg);
+}
+.hero-art > .orbit-three {
+  --orbit-speed: 10s; --orbit-delay: -6s;
+  width: 68%; height: 78%;
+  border-color: rgba(57,255,20,.21);
+  transform: translate(-50%,-50%) rotateX(18deg) rotateY(58deg) rotateZ(-34deg);
+}
+.hero-art > .orbit-four {
+  --orbit-speed: 11s; --orbit-delay: -8s;
+  width: 52%; height: 66%;
+  border-color: rgba(57,255,20,.19);
+  transform: translate(-50%,-50%) rotateX(66deg) rotateY(18deg) rotateZ(62deg);
+}
+.hero-art > .orbit-five,
+.hero-art > .orbit-six,
+.hero-art > .orbit-seven { display: none !important; }
+.hero-art > .art-orbit::before { display: none !important; }
+@keyframes orbit-reference-clean {
+  from { transform: translate(-50%,-50%) rotateX(var(--start-x, 58deg)) rotateY(var(--start-y, 12deg)) rotateZ(var(--start-z, 0deg)); }
+  to { transform: translate(-50%,-50%) rotateX(var(--start-x, 58deg)) rotateY(calc(var(--start-y, 12deg) + 24deg)) rotateZ(calc(var(--start-z, 0deg) + 360deg)); }
+}
+.hero-art > .orbit-one { --start-x: 8deg; --start-y: 12deg; --start-z: -8deg; }
+.hero-art > .orbit-two { --start-x: 58deg; --start-y: 12deg; --start-z: 28deg; }
+.hero-art > .orbit-three { --start-x: 18deg; --start-y: 58deg; --start-z: -34deg; }
+.hero-art > .orbit-four { --start-x: 66deg; --start-y: 18deg; --start-z: 62deg; }
