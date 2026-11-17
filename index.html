@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4fff0">
+  <meta name="description" content="Nenofolio is the creative portfolio of a video editor and visual creator.">
+  <title>Nenofolio | Creative Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-glow page-glow-one" aria-hidden="true"></div>
+  <div class="page-glow page-glow-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Nenofolio home">
+      <span class="brand-mark">N<span>.</span></span>
+      <span class="brand-name">NENOFOLIO</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="audio-toggle" id="audioToggle" type="button" aria-pressed="false">
+      <span class="audio-indicator" aria-hidden="true"></span>
+      <span id="audioLabel">Ambient audio: off</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> CREATIVE PORTFOLIO / 2026</p>
+        <h1>Ideas into<br><span>visual impact.</span></h1>
+        <p class="hero-description">A space for edits, experiments, and visual stories. Built with curiosity, precision, and a little neon energy.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#about">Get to know me <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-meta">
+          <span><i class="status-dot"></i> OPEN TO CREATIVE PROJECTS</span>
+          <span class="meta-divider"></span>
+          <span>VIDEO · DESIGN · EXPERIMENTS</span>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Abstract neon green graphic">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-grid"></div>
+        <div class="art-core"><span>N</span></div>
+        <div class="art-tag tag-top">NENO / VISUAL LAB</div>
+        <div class="art-tag tag-bottom">CREATE. REFINE. REPEAT.</div>
+        <div class="art-cross cross-one">+</div>
+        <div class="art-cross cross-two">+</div>
+      </div>
+      <div class="hero-index"><span>01</span> / THE CREATIVE SPACE</div>
+    </section>
+
+    <section class="ticker" aria-label="Creative disciplines">
+      <div class="ticker-track">
+        <span>VIDEO EDITING</span><b>✳</b><span>VISUAL DESIGN</span><b>✳</b><span>ANIME EDITS</span><b>✳</b><span>CREATIVE EXPERIMENTS</span><b>✳</b><span>VIDEO EDITING</span><b>✳</b><span>VISUAL DESIGN</span><b>✳</b>
+      </div>
+    </section>
+
+    <section class="content-section section-wrap" id="work">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / SELECTED PROJECTS</p>
+          <h2>Made to be <span>seen.</span></h2>
+        </div>
+        <p class="section-note">A collection of video work and creative experiments. New projects can be added anytime.</p>
+      </div>
+      <div class="filter-row" id="galleryFilters" aria-label="Filter projects">
+        <button class="filter-button active" type="button" data-filter="all">All work</button>
+      </div>
+      <div class="video-grid" id="videoGallery">
+        <div class="empty-state">
+          <span class="empty-icon">＋</span>
+          <h3>Your next project goes here.</h3>
+          <p>Add MP4 or WebM videos in the assets folder, then list them in <code>script.js</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase-section" id="showcase">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / ELSEWHERE ON THE INTERNET</p>
+            <h2>More from the <span>feed.</span></h2>
+          </div>
+          <p class="section-note">YouTube videos and Instagram posts can appear here as embedded previews.</p>
+        </div>
+        <div class="embed-grid" id="embedGallery">
+          <div class="embed-empty">
+            <div class="embed-empty-icon">▶</div>
+            <h3>Connect your platforms.</h3>
+            <p>Add YouTube or Instagram links to the embeds list in <code>script.js</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section section-wrap" id="about">
+      <div class="about-stamp" aria-hidden="true"><span>THINK</span><b>+</b><span>CREATE</span><b>+</b><span>REPEAT</span></div>
+      <div class="about-copy">
+        <p class="eyebrow">03 / THE PERSON BEHIND THE PIXELS</p>
+        <h2>Not just making content.<br><span>Building a point of view.</span></h2>
+        <p class="about-text">I'm a creator exploring video editing, graphic design, and digital storytelling. I enjoy learning how things work, testing ideas, and turning rough concepts into something clear and memorable.</p>
+        <div class="about-values">
+          <div><span>01</span><strong>Curiosity first</strong><p>Keep learning. Keep questioning.</p></div>
+          <div><span>02</span><strong>Details matter</strong><p>Small choices shape the final result.</p></div>
+          <div><span>03</span><strong>Make it real</strong><p>Ideas mean more when you build them.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="section-wrap contact-inner">
+        <div>
+          <p class="eyebrow">04 / HAVE SOMETHING IN MIND?</p>
+          <h2>Let's make<br><span>something memorable.</span></h2>
+        </div>
+        <div class="contact-side">
+          <p>For collaborations, creative ideas, or just to say hello, use one of the contact links below.</p>
+          <div class="social-links" id="socialLinks">
+            <a href="https://github.com/Jahid10s" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-bottom section-wrap">
+        <span>© <span id="currentYear">2026</span> NENOFOLIO</span>
+        <span>DESIGNED TO KEEP CREATING <b>✳</b></span>
+        <a href="#home">BACK TO TOP ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <audio id="ambientAudio" loop preload="none"></audio>
+  <div class="site-toast" id="siteToast" role="status" aria-live="polite"></div>
+</body>
+</html>
