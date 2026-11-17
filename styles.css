@@ -517,3 +517,98 @@ code { background: #10200c; color: #a5ff8a; }
   50% { transform: rotateX(62deg) rotateY(18deg) rotateZ(225deg); }
   100% { transform: rotateX(18deg) rotateY(62deg) rotateZ(405deg); }
 }
+
+
+/* Final motion tuning: angled marquee and a seven-ring 3D system */
+.ticker {
+  transform: rotate(-2deg) scale(1.025);
+  transform-origin: center center;
+  width: 102%;
+  margin-left: -1%;
+}
+.ticker-track { animation-duration: 20s; }
+
+.art-orbit { position: absolute; left: 50%; top: 50%; }
+.orbit-one { animation-duration: 8s; }
+.orbit-two { animation-duration: 10s; }
+
+.orbit-three, .orbit-four, .orbit-five, .orbit-six, .orbit-seven {
+  border: 1px solid rgba(57,255,20,.28);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  will-change: transform;
+}
+.orbit-three {
+  width: 330px; height: 330px;
+  margin: -165px 0 0 -165px;
+  animation: nenofolio-orbit-three 7s linear infinite;
+  border-color: rgba(57,255,20,.38);
+}
+.orbit-four {
+  width: 305px; height: 305px;
+  margin: -152.5px 0 0 -152.5px;
+  animation: nenofolio-orbit-four 9s linear infinite;
+}
+.orbit-five {
+  width: 265px; height: 265px;
+  margin: -132.5px 0 0 -132.5px;
+  animation: nenofolio-orbit-five 6.5s linear infinite;
+  border-color: rgba(57,255,20,.48);
+}
+.orbit-six {
+  width: 225px; height: 225px;
+  margin: -112.5px 0 0 -112.5px;
+  animation: nenofolio-orbit-six 8.5s linear infinite;
+}
+.orbit-seven {
+  width: 190px; height: 190px;
+  margin: -95px 0 0 -95px;
+  animation: nenofolio-orbit-seven 5.8s linear infinite;
+  border-color: rgba(57,255,20,.5);
+}
+.orbit-three::before, .orbit-four::before, .orbit-five::before,
+.orbit-six::before, .orbit-seven::before {
+  content: "";
+  position: absolute;
+  top: 50%; right: -3px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #39ff14;
+  box-shadow: 0 0 8px #39ff14, 0 0 15px rgba(57,255,20,.85);
+}
+.orbit-four::before, .orbit-six::before {
+  right: auto; left: -3px;
+  width: 5px; height: 5px;
+  background: #c4ffb6;
+}
+@keyframes nenofolio-orbit-three {
+  from { transform: rotateX(72deg) rotateY(0deg) rotateZ(10deg); }
+  to { transform: rotateX(72deg) rotateY(360deg) rotateZ(370deg); }
+}
+@keyframes nenofolio-orbit-four {
+  from { transform: rotateX(25deg) rotateY(68deg) rotateZ(20deg); }
+  to { transform: rotateX(25deg) rotateY(428deg) rotateZ(380deg); }
+}
+@keyframes nenofolio-orbit-five {
+  from { transform: rotateX(58deg) rotateY(25deg) rotateZ(0deg); }
+  to { transform: rotateX(58deg) rotateY(385deg) rotateZ(360deg); }
+}
+@keyframes nenofolio-orbit-six {
+  from { transform: rotateX(12deg) rotateY(76deg) rotateZ(65deg); }
+  to { transform: rotateX(12deg) rotateY(436deg) rotateZ(425deg); }
+}
+@keyframes nenofolio-orbit-seven {
+  from { transform: rotateX(82deg) rotateY(15deg) rotateZ(35deg); }
+  to { transform: rotateX(82deg) rotateY(375deg) rotateZ(395deg); }
+}
+@media (max-width: 700px) {
+  .orbit-three { width: 290px; height: 290px; margin: -145px 0 0 -145px; }
+  .orbit-four { width: 265px; height: 265px; margin: -132.5px 0 0 -132.5px; }
+  .orbit-five { width: 235px; height: 235px; margin: -117.5px 0 0 -117.5px; }
+  .orbit-six { width: 205px; height: 205px; margin: -102.5px 0 0 -102.5px; }
+  .orbit-seven { width: 175px; height: 175px; margin: -87.5px 0 0 -87.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .art-orbit { animation-duration: 60s !important; }
+}
