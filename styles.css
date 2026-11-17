@@ -441,3 +441,38 @@ code { background: #10200c; color: #a5ff8a; }
   width: 100%;
   height: 100%;
 }
+
+
+/* Character logo in the header */
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 10px;
+  background: #030503;
+  border: 1px solid rgba(57,255,20,.62);
+  box-shadow: 0 0 15px rgba(57,255,20,.18);
+}
+.brand-mark .brand-fallback {
+  color: #39ff14;
+  font-size: 20px;
+  line-height: 1;
+  transition: opacity .2s ease;
+}
+.brand-avatar {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.brand-mark.is-loaded .brand-avatar { opacity: 1; }
+.brand-mark.is-loaded .brand-fallback { opacity: 0; }
