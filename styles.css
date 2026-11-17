@@ -751,3 +751,15 @@ code { background: #10200c; color: #a5ff8a; }
   .hero-art { opacity: .42; }
   .hero-art > .art-orbit { border-width: 1px; }
 }
+
+
+/* Final orbit count: keep five elegant elliptical paths */
+.hero-art > .orbit-six,
+.hero-art > .orbit-seven {
+  display: none !important;
+}
+.hero-art > .orbit-one   { --orbit-w: 96%; --orbit-h: 76%; }
+.hero-art > .orbit-two   { --orbit-w: 85%; --orbit-h: 68%; }
+.hero-art > .orbit-three { --orbit-w: 74%; --orbit-h: 60%; }
+.hero-art > .orbit-four  { --orbit-w: 64%; --orbit-h: 80%; }
+.hero-art > .orbit-five  { --orbit-w: 54%; --orbit-h: 70%; }
