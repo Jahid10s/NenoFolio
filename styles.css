@@ -476,3 +476,31 @@ code { background: #10200c; color: #a5ff8a; }
 }
 .brand-mark.is-loaded .brand-avatar { opacity: 1; }
 .brand-mark.is-loaded .brand-fallback { opacity: 0; }
+
+
+/* Display the character image directly in both brand locations */
+.brand-mark {
+  overflow: hidden;
+  background: #030503;
+}
+.brand-avatar {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 1;
+}
+.art-core {
+  overflow: hidden;
+  background: #030503;
+  border: 1px solid rgba(57,255,20,.72);
+  box-shadow: 0 0 28px rgba(57,255,20,.2), inset 0 0 20px rgba(57,255,20,.08);
+}
+.art-character-logo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: rotate(12deg) scale(1.04);
+  border-radius: inherit;
+}
