@@ -9,8 +9,13 @@
 
 const SITE_CONTENT = {
   videos: [
-    // Example:
-    // { title: "Neon Motion", category: "AMV", src: "assets/videos/neon-motion.mp4", poster: "assets/thumbnails/neon-motion.jpg", description: "A short visual experiment." }
+    {
+      title: "AMV Short",
+      category: "AMV",
+      platform: "youtube",
+      url: "https://youtube.com/shorts/TVXkdr8sctA?si=l1bpxglZranUin38",
+      description: "Featured YouTube Short."
+    }
   ],
   embeds: [
     // YouTube: { platform: "youtube", title: "My latest video", url: "https://youtu.be/VIDEO_ID" }
@@ -81,17 +86,29 @@ function renderVideos(items, selectedCategory = "all") {
 
   visibleItems.forEach(item => {
     const card = makeElement("article", "video-card");
-    const frame = makeElement("div", "video-frame");
-    const video = document.createElement("video");
-    video.controls = true;
-    video.preload = "metadata";
-    video.playsInline = true;
-    if (item.poster) video.poster = item.poster;
-    const source = document.createElement("source");
-    source.src = item.src;
-    source.type = item.src.toLowerCase().endsWith(".webm") ? "video/webm" : "video/mp4";
-    video.append(source);
-    frame.append(video);
+    const frame = makeElement("div", "video-frame" + (item.platform === "youtube" ? " video-frame-short" : ""));
+
+    if (item.platform === "youtube") {
+      const iframe = document.createElement("iframe");
+      iframe.src = youtubeEmbedUrl(item.url);
+      iframe.title = item.title || "YouTube video";
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+      frame.append(iframe);
+    } else {
+      const video = document.createElement("video");
+      video.controls = true;
+      video.preload = "metadata";
+      video.playsInline = true;
+      if (item.poster) video.poster = item.poster;
+      const source = document.createElement("source");
+      source.src = item.src;
+      source.type = item.src.toLowerCase().endsWith(".webm") ? "video/webm" : "video/mp4";
+      video.append(source);
+      frame.append(video);
+    }
 
     const info = makeElement("div", "video-info");
     info.append(
