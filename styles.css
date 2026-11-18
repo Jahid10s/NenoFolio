@@ -887,3 +887,61 @@ code { background: #10200c; color: #a5ff8a; }
   .hero-art { opacity: .82 !important; }
   .hero-art > .art-orbit { border-width: 1.5px !important; }
 }
+
+
+/* Balanced hero orbits: three rings and two small glowing planets */
+.hero-art > .orbit-one,
+.hero-art > .orbit-two,
+.hero-art > .orbit-three {
+  display: block !important;
+  border: 1.35px solid rgba(57,255,20,.34) !important;
+  box-shadow: 0 0 4px rgba(57,255,20,.06) !important;
+}
+.hero-art > .orbit-one {
+  width: 88% !important; height: 76% !important;
+  --orbit-duration: 44s; --orbit-delay: -4s;
+  --orbit-x: 18deg; --orbit-y: 10deg; --orbit-z: -12deg;
+  border-color: rgba(57,255,20,.38) !important;
+}
+.hero-art > .orbit-two {
+  width: 72% !important; height: 66% !important;
+  --orbit-duration: 39s; --orbit-delay: -13s;
+  --orbit-x: 58deg; --orbit-y: 18deg; --orbit-z: 32deg;
+  border-color: rgba(57,255,20,.32) !important;
+}
+.hero-art > .orbit-three {
+  width: 60% !important; height: 82% !important;
+  --orbit-duration: 48s; --orbit-delay: -22s;
+  --orbit-x: 24deg; --orbit-y: 62deg; --orbit-z: -38deg;
+  border-color: rgba(57,255,20,.30) !important;
+}
+.hero-art > .orbit-four,
+.hero-art > .orbit-five,
+.hero-art > .orbit-six,
+.hero-art > .orbit-seven { display: none !important; }
+
+/* Hide any legacy orbit decorations, then add exactly two planet points */
+.hero-art > .art-orbit::before,
+.hero-art > .art-orbit::after { content: none !important; }
+.hero-art > .orbit-one::after,
+.hero-art > .orbit-three::after {
+  content: "" !important;
+  display: block !important;
+  content: "" !important;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #55ff32;
+  box-shadow: 0 0 5px 2px rgba(57,255,20,.55), 0 0 12px 4px rgba(57,255,20,.22);
+}
+.hero-art > .orbit-one::after {
+  left: 72%;
+  top: 4%;
+}
+.hero-art > .orbit-three::after {
+  left: 18%;
+  top: 83%;
+  width: 7px;
+  height: 7px;
+}
