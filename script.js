@@ -17,18 +17,16 @@ const SITE_CONTENT = {
       description: "Featured YouTube Short."
     },
     {
-      title: "AMV Reel",
+      title: "WHO IS OBITO 👁️🌀 - From Tobi the Fool to the True Power of Obito Uchiha 🔥At first, everyone k.mp4",
       category: "AMV",
-      platform: "instagram",
-      url: "https://www.instagram.com/reel/Db0dxN8z5hd/",
-      description: "Featured Instagram Reel."
+      src: "assets/videos/" + encodeURIComponent("WHO IS OBITO 👁️🌀 - From Tobi the Fool to the True Power of Obito Uchiha 🔥At first, everyone k.mp4"),
+      description: " "
     },
     {
-      title: "Typography Reel",
+      title: "Discover the breathtaking beauty of Italy! 🇮🇹 From the iconic Leaning Tower of Pisa and the hi.mp4",
       category: "TYPOGRAPHY",
-      platform: "instagram",
-      url: "https://www.instagram.com/reel/Dfg_liLKi2v/",
-      description: "Featured Instagram Reel."
+      src: "assets/videos/" + encodeURIComponent("Discover the breathtaking beauty of Italy! 🇮🇹 From the iconic Leaning Tower of Pisa and the hi.mp4"),
+      description: " "
     }
   ],
   embeds: [],
