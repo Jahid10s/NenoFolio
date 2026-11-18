@@ -18,9 +18,18 @@ const SITE_CONTENT = {
     }
   ],
   embeds: [
-    // YouTube: { platform: "youtube", title: "My latest video", url: "https://youtu.be/VIDEO_ID" }
-    // Instagram Reels: add one entry per public Reel using its individual URL.
-    // Example: { platform: "instagram", title: "Featured AMV Reel", url: "https://www.instagram.com/reel/SHORTCODE/" }
+    {
+      platform: "instagram",
+      category: "AMV",
+      title: "AMV Reel",
+      url: "https://www.instagram.com/reel/Db0dxN8z5hd/"
+    },
+    {
+      platform: "instagram",
+      category: "TYPOGRAPHY",
+      title: "Typography Reel",
+      url: "https://www.instagram.com/reel/Dfg_liLKi2v/"
+    }
   ],
   socials: {
     github: "https://github.com/Jahid10s",
@@ -147,7 +156,7 @@ function instagramEmbedUrl(url) {
     const kind = parts[0];
     const shortcode = parts[1];
     if (!["p", "reel", "tv"].includes(kind) || !shortcode) return "";
-    return "https://www.instagram.com/" + kind + "/" + encodeURIComponent(shortcode) + "/embed";
+    return "https://www.instagram.com/" + kind + "/" + encodeURIComponent(shortcode) + "/embed/";
   } catch (_) {
     return "";
   }
@@ -185,7 +194,7 @@ function renderEmbeds(items) {
 
     const caption = makeElement("div", "embed-caption");
     const textBlock = document.createElement("div");
-    textBlock.append(makeElement("span", "", item.platform.toUpperCase()), makeElement("h3", "", item.title || "Featured post"));
+    textBlock.append(makeElement("span", "video-category", item.category || item.platform.toUpperCase()), makeElement("h3", "", item.title || "Featured post"));
     const external = document.createElement("a");
     external.href = item.url;
     external.target = "_blank";
