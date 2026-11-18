@@ -179,6 +179,12 @@ function instagramEmbedUrl(url) {
 
 function renderEmbeds(items) {
   embedGallery.replaceChildren();
+  const showcaseSection = embedGallery.closest(".showcase-section");
+  if (!items.length) {
+    if (showcaseSection) showcaseSection.hidden = true;
+    return;
+  }
+  if (showcaseSection) showcaseSection.hidden = false;
   if (!items.length) {
     const empty = makeElement("div", "embed-empty");
     empty.append(
