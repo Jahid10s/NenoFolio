@@ -110,18 +110,14 @@ function renderVideos(items, selectedCategory = "all") {
       frame.append(iframe);
     } else if (item.platform === "instagram") {
       frame.classList.add("video-frame-short", "video-frame-instagram");
-      const link = document.createElement("a");
-      link.className = "instagram-card-link";
-      link.href = item.url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.setAttribute("aria-label", "Open " + (item.title || "Instagram Reel") + " on Instagram");
-      link.append(
-        makeElement("span", "instagram-card-brand", "INSTAGRAM REEL"),
-        makeElement("span", "instagram-card-play", "▶"),
-        makeElement("span", "instagram-card-open", "WATCH REEL ↗")
-      );
-      frame.append(link);
+      const iframe = document.createElement("iframe");
+      iframe.src = instagramEmbedUrl(item.url);
+      iframe.title = item.title || "Instagram Reel";
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allow = "autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+      frame.append(iframe);
     } else {
       const video = document.createElement("video");
       video.controls = true;
