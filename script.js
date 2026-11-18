@@ -119,8 +119,12 @@ function renderVideos(items, selectedCategory = "all") {
     } else {
       const video = document.createElement("video");
       video.controls = true;
+      video.controlsList = "nodownload noplaybackrate";
+      video.disablePictureInPicture = true;
+      video.disableRemotePlayback = true;
       video.preload = "metadata";
       video.playsInline = true;
+      video.addEventListener("contextmenu", (event) => event.preventDefault());
       if (item.poster) video.poster = item.poster;
       const source = document.createElement("source");
       source.src = item.src;
