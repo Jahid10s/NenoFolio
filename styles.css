@@ -814,3 +814,76 @@ code { background: #10200c; color: #a5ff8a; }
 .hero-art > .orbit-two { --start-x: 58deg; --start-y: 12deg; --start-z: 28deg; }
 .hero-art > .orbit-three { --start-x: 18deg; --start-y: 58deg; --start-z: -34deg; }
 .hero-art > .orbit-four { --start-x: 66deg; --start-y: 18deg; --start-z: 62deg; }
+
+
+/* Clean, visible, slow orbital rings: close to the N, like the reference */
+.hero-art {
+  background: none !important;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.hero-art > .art-orbit {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  margin: 0 !important;
+  border: 1.5px solid rgba(57,255,20,.42) !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  box-shadow: 0 0 5px rgba(57,255,20,.08) !important;
+  opacity: 1 !important;
+  display: block !important;
+  aspect-ratio: auto !important;
+  transform-style: preserve-3d;
+  animation: nenofolio-orbit-slow var(--orbit-duration) linear infinite !important;
+  animation-delay: var(--orbit-delay) !important;
+  will-change: transform;
+}
+.hero-art > .orbit-one {
+  width: 94% !important; height: 70% !important;
+  --orbit-duration: 30s; --orbit-delay: -4s;
+  --orbit-x: 58deg; --orbit-y: 8deg; --orbit-z: -18deg;
+  border-color: rgba(57,255,20,.48) !important;
+}
+.hero-art > .orbit-two {
+  width: 86% !important; height: 76% !important;
+  --orbit-duration: 34s; --orbit-delay: -11s;
+  --orbit-x: 18deg; --orbit-y: 56deg; --orbit-z: 24deg;
+  border-color: rgba(57,255,20,.42) !important;
+}
+.hero-art > .orbit-three {
+  width: 78% !important; height: 62% !important;
+  --orbit-duration: 28s; --orbit-delay: -7s;
+  --orbit-x: 64deg; --orbit-y: 14deg; --orbit-z: 58deg;
+  border-color: rgba(57,255,20,.40) !important;
+}
+.hero-art > .orbit-four {
+  width: 70% !important; height: 82% !important;
+  --orbit-duration: 36s; --orbit-delay: -19s;
+  --orbit-x: 22deg; --orbit-y: 62deg; --orbit-z: -42deg;
+  border-color: rgba(57,255,20,.36) !important;
+}
+.hero-art > .orbit-five {
+  width: 62% !important; height: 68% !important;
+  --orbit-duration: 32s; --orbit-delay: -14s;
+  --orbit-x: 60deg; --orbit-y: 20deg; --orbit-z: 96deg;
+  border-color: rgba(57,255,20,.38) !important;
+}
+.hero-art > .orbit-six,
+.hero-art > .orbit-seven { display: none !important; }
+.hero-art > .art-orbit::before { display: none !important; }
+@keyframes nenofolio-orbit-slow {
+  from {
+    transform: translate(-50%,-50%) rotateX(var(--orbit-x)) rotateY(var(--orbit-y)) rotateZ(var(--orbit-z));
+  }
+  to {
+    transform: translate(-50%,-50%) rotateX(var(--orbit-x)) rotateY(var(--orbit-y)) rotateZ(calc(var(--orbit-z) + 360deg));
+  }
+}
+.hero-art > .art-core { position: relative; z-index: 3; }
+.hero-art > .art-tag,
+.hero-art > .art-cross { display: none !important; }
+@media (max-width: 680px) {
+  .hero-art { opacity: .82 !important; }
+  .hero-art > .art-orbit { border-width: 1.5px !important; }
+}
