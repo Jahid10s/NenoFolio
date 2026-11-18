@@ -15,22 +15,23 @@ const SITE_CONTENT = {
       platform: "youtube",
       url: "https://youtube.com/shorts/TVXkdr8sctA?si=l1bpxglZranUin38",
       description: "Featured YouTube Short."
-    }
-  ],
-  embeds: [
-    {
-      platform: "instagram",
-      category: "AMV",
-      title: "AMV Reel",
-      url: "https://www.instagram.com/reel/Db0dxN8z5hd/"
     },
     {
+      title: "AMV Reel",
+      category: "AMV",
       platform: "instagram",
-      category: "TYPOGRAPHY",
+      url: "https://www.instagram.com/reel/Db0dxN8z5hd/",
+      description: "Featured Instagram Reel."
+    },
+    {
       title: "Typography Reel",
-      url: "https://www.instagram.com/reel/Dfg_liLKi2v/"
+      category: "TYPOGRAPHY",
+      platform: "instagram",
+      url: "https://www.instagram.com/reel/Dfg_liLKi2v/",
+      description: "Featured Instagram Reel."
     }
   ],
+  embeds: [],
   socials: {
     github: "https://github.com/Jahid10s",
     youtube: "",
@@ -107,6 +108,20 @@ function renderVideos(items, selectedCategory = "all") {
       iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
       iframe.allowFullscreen = true;
       frame.append(iframe);
+    } else if (item.platform === "instagram") {
+      frame.classList.add("video-frame-short", "video-frame-instagram");
+      const link = document.createElement("a");
+      link.className = "instagram-card-link";
+      link.href = item.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", "Open " + (item.title || "Instagram Reel") + " on Instagram");
+      link.append(
+        makeElement("span", "instagram-card-brand", "INSTAGRAM REEL"),
+        makeElement("span", "instagram-card-play", "▶"),
+        makeElement("span", "instagram-card-open", "WATCH REEL ↗")
+      );
+      frame.append(link);
     } else {
       const video = document.createElement("video");
       video.controls = true;
