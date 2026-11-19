@@ -141,9 +141,12 @@ function renderVideos(items, selectedCategory = "all") {
     }
 
     const info = makeElement("div", "video-info");
+    const displayTitle = item.src
+      ? decodeURIComponent(item.src.split("/").pop()).replace(/\\.[^.]+$/, "")
+      : (item.title || "Untitled project");
     info.append(
       makeElement("span", "video-category", item.category || "PROJECT"),
-      makeElement("h3", "", item.title || "Untitled project"),
+      makeElement("h3", "video-title", displayTitle),
       makeElement("p", "", item.description || "")
     );
     card.append(frame, info);
