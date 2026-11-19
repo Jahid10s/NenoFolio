@@ -1010,3 +1010,35 @@ code { background: #10200c; color: #a5ff8a; }
   transform: scale(1.08);
   box-shadow: 0 0 26px rgba(57,255,20,.42);
 }
+
+
+/* Per-video native aspect ratios: keep landscape and portrait previews correct
+   on both mobile and desktop, without cropping the source video. */
+.video-grid {
+  align-items: start;
+}
+.video-card {
+  align-self: start;
+  min-width: 0;
+}
+.video-frame {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #010301;
+}
+.video-frame video,
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.video-frame video {
+  background: #010301;
+}
+.video-frame.video-frame-short {
+  aspect-ratio: 9 / 16;
+  max-height: none;
+}
