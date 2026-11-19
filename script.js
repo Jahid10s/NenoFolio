@@ -141,9 +141,18 @@ function renderVideos(items, selectedCategory = "all") {
     }
 
     const info = makeElement("div", "video-info");
-    const displayTitle = item.src
-      ? decodeURIComponent(item.src.split("/").pop()).replace(/\\.[^.]+$/, "")
-      : (item.title || "Untitled project");
+    const fileName = item.src
+      ? item.src.split(/[?#]/, 1)[0].split("/").pop()
+      : "";
+    let displayTitle = item.title || "Untitled project";
+    if (fileName) {
+      try {
+        displayTitle = decodeURIComponent(fileName);
+      } catch {
+        displayTitle = fileName;
+      }
+      displayTitle = displayTitle.replace(/\.(?:mp4|webm|mov|m4v)$/i, "");
+    }
     info.append(
       makeElement("span", "video-category", item.category || "PROJECT"),
       makeElement("h3", "video-title", displayTitle),
