@@ -17,13 +17,13 @@ const SITE_CONTENT = {
       description: "Featured YouTube Short."
     },
     {
-      title: "WHO IS OBITO 👁️🌀 - From Tobi the Fool to the True Power of Obito Uchiha 🔥At first, everyone k.mp4",
+      title: "WHO IS OBITO 👁️🌀 - From Tobi the Fool to the True Power of Obito Uchiha 🔥At first, everyone k",
       category: "AMV",
       src: "assets/videos/" + encodeURIComponent("WHO IS OBITO 👁️🌀 - From Tobi the Fool to the True Power of Obito Uchiha 🔥At first, everyone k.mp4"),
       description: " "
     },
     {
-      title: "Discover the breathtaking beauty of Italy! 🇮🇹 From the iconic Leaning Tower of Pisa and the hi.mp4",
+      title: "Discover the breathtaking beauty of Italy! 🇮🇹 From the iconic Leaning Tower of Pisa and the hi",
       category: "TYPOGRAPHY",
       src: "assets/videos/" + encodeURIComponent("Discover the breathtaking beauty of Italy! 🇮🇹 From the iconic Leaning Tower of Pisa and the hi.mp4"),
       description: " "
@@ -124,6 +124,13 @@ function renderVideos(items, selectedCategory = "all") {
       video.disableRemotePlayback = true;
       video.preload = "metadata";
       video.playsInline = true;
+      video.addEventListener("loadedmetadata", () => {
+        if (video.videoWidth > 0 && video.videoHeight > 0) {
+          frame.style.aspectRatio = video.videoWidth + " / " + video.videoHeight;
+          frame.dataset.videoOrientation = video.videoWidth > video.videoHeight ? "landscape" :
+            video.videoWidth < video.videoHeight ? "portrait" : "square";
+        }
+      }, { once: true });
       video.addEventListener("contextmenu", (event) => event.preventDefault());
       if (item.poster) video.poster = item.poster;
       const source = document.createElement("source");
