@@ -1042,3 +1042,25 @@ code { background: #10200c; color: #a5ff8a; }
   aspect-ratio: 9 / 16;
   max-height: none;
 }
+
+
+/* Show complete uploaded-video filenames as readable, wrapped titles. */
+.video-info {
+  min-width: 0;
+  overflow: visible;
+}
+.video-info .video-title {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 8px 0 6px;
+  overflow: visible;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  text-overflow: clip;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+}
